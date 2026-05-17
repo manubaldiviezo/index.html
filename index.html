@@ -3,54 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TU MOMO Inmuebles — Infraestructura Tecnológica Inmobiliaria</title>
-<meta name="description" content="La plataforma inmobiliaria más confiable de Bolivia. Inventario 100% verificado, analítica de mercado en tiempo real y precalificación inteligente de leads.">
+<title>TuMomo Inmuebles — Datos y Transacciones Inmobiliarias en Bolivia</title>
+<meta name="description" content="La plataforma inmobiliaria más confiable de Bolivia. Propiedades verificadas, analítica de precios por metro cuadrado y contactos con liquidez real.">
 <meta name="theme-color" content="#0A0A0A">
-<meta property="og:title" content="TU MOMO Inmuebles — Transacciones Inmobiliarias Seguras">
-<meta property="og:description" content="Integración nativa de datos, analítica en tiempo real y leads precalificados para profesionales del sector en Bolivia.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tumomo.com/inmuebles">
-
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PNXMT8M');</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg:           #FFFFFF;
-  --bg-alt:       #FAFAF7;
+  --bg-alt:       #FAFAF8;
   --ink:          #0A0A0A;
-  --ink-soft:     #1A1A1A;
-  --ink-mid:      #3D3D3D;
-  --ink-low:      #6B6B6B;
-  --ink-faint:    #A0A0A0;
-  --line:         #E8E8E3;
-  --line-soft:    #F0F0EC;
+  --ink-mid:      #2A2A2A;
+  --ink-low:      #555555;
+  --line:         #E5E5E0;
+  --line-soft:    #F2F2EE;
 
-  /* Naranja TU MOMO */
+  /* Identidad Visual Sutil */
   --action:       #FF5A1F;
-  --action-dark:  #E04812;
-  --action-soft:  #FFF1EA;
-
-  /* Amarillo Acento */
+  --action-dark:  #E04410;
+  --action-soft:  #FFF2EC;
   --accent:       #FFD600;
-  --accent-soft:  #FFF8CC;
 
-  --up:           #0F8A4A;
-  --down:         #C73838;
-  --up-soft:      #E8F5ED;
-  --down-soft:    #FCEDED;
+  --up:           #108A4A;
+  --up-soft:      #E6F5EC;
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-body:    'Manrope', system-ui, sans-serif;
 
-  --radius-sm: 8px;
-  --radius:    14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
-  --max-w: 1240px;
+  --radius:    12px;
+  --radius-lg: 20px;
+  --max-w:     1240px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,250 +47,233 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-img { display: block; max-width: 100%; height: auto; }
+/* --- ANIMACIONES DE ENTRADA (SCROLL REVEAL) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .container {
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
-@media (min-width: 768px) { .container { padding: 0 32px; } }
-@media (min-width: 1200px) { .container { padding: 0 48px; } }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-mid);
+  color: var(--action);
+  margin-bottom: 12px;
+  display: block;
 }
-.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--action); }
 
-.section-head { margin-bottom: 48px; }
 .section-head h2 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-top: 16px;
 }
 .section-head h2 em { font-style: italic; font-weight: 400; color: var(--action); }
 
 .section-sub {
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16px;
   color: var(--ink-low);
-  max-width: 560px;
-  margin-top: 16px;
+  max-width: 600px;
+  margin-top: 12px;
 }
 
+/* BOTONES ELEVADOS */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-size: 15px;
+  gap: 8px;
+  font-size: 14px;
   font-weight: 600;
   padding: 14px 28px;
-  border-radius: 100px;
+  border-radius: 50px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary { background: var(--ink); color: #fff; }
 .btn-primary:hover { background: var(--action); transform: translateY(-2px); }
 .btn-action { background: var(--action); color: #fff; }
-.btn-action:hover { background: var(--action-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255, 90, 31, 0.28); }
+.btn-action:hover { background: var(--action-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 90, 31, 0.15); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-.btn-ghost:hover { border-color: var(--ink); }
-
-.btn-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 15px;
-  transition: gap 0.2s;
-}
-.btn-link:hover { gap: 12px; color: var(--action); }
+.btn-ghost:hover { border-color: var(--ink); background: var(--bg-alt); }
 
 /* NAVBAR */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line-soft);
 }
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  padding: 16px 0;
 }
-.logo-mark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
+.logo-mark { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--ink); letter-spacing: -0.02em; text-decoration: none; }
 .logo-mark span { color: var(--action); }
-.logo-divider { width: 1px; height: 18px; background: var(--line); margin: 0 12px; display: inline-block; vertical-align: middle; }
-.logo-vertical { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--ink-mid); display: inline-block; vertical-align: middle; }
-.nav-menu { display: none; align-items: center; gap: 32px; }
-@media (min-width: 1024px) { .nav-menu { display: flex; } }
-.nav-link { font-size: 14px; font-weight: 500; color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
-.nav-link:hover { color: var(--action); }
+.nav-links { display: none; gap: 32px; }
+@media (min-width: 1024px) { .nav-links { display: flex; } }
+.nav-link { font-size: 14px; font-weight: 500; color: var(--ink-low); text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: var(--ink); }
 
 /* HERO */
-.hero { position: relative; padding: 64px 0 80px; background: var(--bg); overflow: hidden; }
-@media (min-width: 768px) { .hero { padding: 88px 0 120px; } }
-.hero-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: start; }
-@media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: center; } }
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--action-soft);
-  border: 1px solid rgba(255, 90, 31, 0.2);
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--action-dark);
-  margin-bottom: 28px;
-}
-.hero-tag .dot { width: 8px; height: 8px; background: var(--action); border-radius: 50%; animation: pulse 2s infinite; }
+.hero { padding: 60px 0 90px; background: var(--bg); }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; } }
 
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(38px, 6.5vw, 76px);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  margin-bottom: 24px;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
 }
 .hero h1 em { font-style: italic; font-weight: 400; color: var(--action); }
-.hero-desc { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.55; color: var(--ink-low); max-width: 540px; margin-bottom: 36px; }
+.hero-desc { font-size: 17px; color: var(--ink-low); max-width: 540px; margin-bottom: 32px; }
 
-/* SEARCH & MARKET INTELLIGENCE */
+/* PANEL DE BÚSQUEDA REALISTA */
 .search-card {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 14px;
-  box-shadow: 0 30px 80px -20px rgba(10,10,10,0.12);
+  padding: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
 }
-.search-tabs { display: flex; gap: 4px; margin-bottom: 14px; padding: 4px; background: var(--bg-alt); border-radius: 100px; width: fit-content; }
-.search-tab { padding: 8px 18px; font-size: 13px; font-weight: 600; color: var(--ink-low); background: transparent; border: none; border-radius: 100px; cursor: pointer; font-family: var(--font-body); }
-.search-tab.active { background: var(--ink); color: var(--bg); }
-.search-fields { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line-soft); border-radius: var(--radius); overflow: hidden; }
-@media (min-width: 640px) { .search-fields { grid-template-columns: 1.2fr 1fr 1fr auto; } }
-.search-field { background: var(--bg); padding: 12px 16px; display: flex; flex-direction: column; }
-.search-field label { font-size: 11px; font-weight: 700; color: var(--ink-low); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
-.search-field select { width: 100%; border: none; font-size: 15px; font-weight: 600; appearance: none; outline: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right center; }
-.search-submit { display: flex; padding: 6px; background: var(--bg); }
-.search-submit button { width: 100%; min-height: 56px; background: var(--action); color: #fff; border: none; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 24px; }
+.search-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.search-tab { padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--ink-low); background: transparent; border: none; border-radius: 30px; cursor: pointer; font-family: var(--font-body); }
+.search-tab.active { background: var(--ink); color: #fff; }
+.search-fields { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 580px) { .search-fields { grid-template-columns: 1fr 1fr auto; } }
+.search-field { display: flex; flex-direction: column; background: var(--bg-alt); padding: 10px 14px; border-radius: var(--radius); border: 1px solid var(--line-soft); }
+.search-field label { font-size: 10px; font-weight: 700; color: var(--ink-low); text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.05em; }
+.search-field select { border: none; background: transparent; font-size: 14px; font-weight: 600; color: var(--ink); outline: none; width: 100%; cursor: pointer; }
 
-/* MARKET CARD GRID */
-.market-card { background: var(--ink); color: #fff; border-radius: var(--radius-xl); padding: 32px; position: relative; }
-.market-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-.market-card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); }
-.market-card-live { font-size: 11px; color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
-.market-card-live::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-.market-rows { display: flex; flex-direction: column; gap: 18px; }
-.market-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-.market-city { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
-.market-city small { display: block; font-family: var(--font-body); font-size: 11px; color: rgba(255, 255, 255, 0.5); }
-.market-price { font-size: 16px; font-weight: 700; text-align: right; }
-.market-price small { display: block; font-size: 10px; color: rgba(255, 255, 255, 0.5); }
-.market-trend { font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 100px; background: rgba(15, 138, 74, 0.15); color: #4ADE80; }
+/* PANEL DEL PULSO DE MERCADO */
+.market-card { background: var(--ink); color: #fff; border-radius: var(--radius-lg); padding: 32px; position: relative; }
+.market-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+.market-rows { display: flex; flex-direction: column; gap: 16px; }
+.market-row { display: grid; grid-template-columns: 1fr auto; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 14px; }
+.market-row:last-child { border-bottom: none; padding-bottom: 0; }
+.market-name { font-family: var(--font-display); font-size: 17px; }
+.market-name small { display: block; font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.market-val { font-size: 15px; font-weight: 700; text-align: right; }
+.market-val small { display: block; font-size: 10px; color: var(--accent); font-weight: 400; }
 
-/* LISTINGS & PROP CARDS */
-.listings { padding: 96px 0; background: var(--bg); }
-.listings-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+/* INVENTARIO COMPROBADO */
+.listings { padding: 80px 0; background: var(--bg-alt); }
+.listings-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
 @media (min-width: 640px) { .listings-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .listings-grid { grid-template-columns: repeat(3, 1fr); } }
 
-.prop-card { background: var(--bg); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; border: 1px solid var(--line-soft); transition: transform 0.3s; }
-.prop-card:hover { transform: translateY(-6px); }
-.prop-img { position: relative; aspect-ratio: 4/3; background: var(--line-soft); }
+.prop-card { background: var(--bg); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; border: 1px solid var(--line-soft); transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); display: block; }
+.prop-card:hover { transform: translateY(-4px); }
+.prop-img { position: relative; aspect-ratio: 4/3; background: #eee; overflow: hidden; }
 .prop-img img { width: 100%; height: 100%; object-fit: cover; }
-.prop-badge { position: absolute; top: 14px; left: 14px; padding: 6px 12px; background: var(--ink); color: #fff; font-size: 11px; font-weight: 700; border-radius: 100px; text-transform: uppercase; }
-.prop-badge.verified { background: var(--up); }
-.prop-body { padding: 20px; }
-.prop-price { font-family: var(--font-display); font-size: 24px; font-weight: 600; }
-.prop-zestimate { font-size: 12px; color: var(--up); font-weight: 600; background: var(--up-soft); padding: 4px 8px; border-radius: 6px; display: inline-block; margin-top: 4px; }
-.prop-title { font-size: 15px; font-weight: 600; margin: 8px 0 4px; }
-.prop-loc { font-size: 13px; color: var(--ink-low); display: flex; align-items: center; gap: 4px; }
+.prop-card-tag { position: absolute; top: 12px; left: 12px; background: var(--up); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
+.prop-body { padding: 18px; }
+.prop-price { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+.prop-estimate { display: inline-block; font-size: 12px; color: var(--up); font-weight: 600; background: var(--up-soft); padding: 2px 8px; border-radius: 4px; margin-top: 4px; }
+.prop-title { font-size: 14px; font-weight: 600; margin: 8px 0 4px; color: var(--ink-mid); }
+.prop-loc { font-size: 12px; color: var(--ink-low); }
 
-/* SEGMENTED PROPOSITION B2B SECTION */
-.vendor { padding: 96px 0; background: var(--bg-alt); }
-.vendor-grid { display: grid; grid-template-columns: 1fr; gap: 64px; }
-@media (min-width: 1024px) { .vendor-grid { grid-template-columns: 1.1fr 1fr; align-items: center; } }
-.pillar-tabs { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
+/* --- CINTA HORIZONTAL INFINITA DE NOTICIAS --- */
+.ticker-section { background: var(--ink); padding: 40px 0; overflow: hidden; position: relative; }
+.ticker-section .eyebrow { text-align: center; margin-bottom: 24px; color: rgba(255,255,255,0.6); }
+.ticker-wrap { width: 100%; overflow: hidden; }
+.ticker-track { display: flex; width: max-content; animation: marquee-scroll 35s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
 
-.pillar-card { background: var(--bg); padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); }
-.pillar-card h3 { font-family: var(--font-display); font-size: 20px; margin-bottom: 8px; color: var(--ink); }
-.pillar-card h3 span { color: var(--action); font-weight: 700; margin-right: 8px; }
-.pillar-card p { font-size: 14px; color: var(--ink-low); line-height: 1.6; }
-.pillar-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-.pillar-tag { font-size: 11px; font-weight: 700; background: var(--bg-alt); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--line); color: var(--ink-mid); }
+.ticker-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  color: #fff;
+  width: 340px;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ticker-card:hover { border-color: var(--action); }
+.ticker-card .tag { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.ticker-card p { font-family: var(--font-display); font-size: 16px; line-height: 1.4; color: rgba(255,255,255,0.95); margin-bottom: 12px; }
+.ticker-meta { font-size: 11px; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; align-items: center; }
+.ticker-meta span.link { color: var(--action); font-weight: 600; }
 
-/* B2B CONVERSION FORM */
-.form-card { background: var(--bg); border-radius: var(--radius-xl); padding: 36px; box-shadow: 0 30px 80px -20px rgba(10,10,10,0.15); border: 1px solid var(--line); }
-.form-title { font-family: var(--font-display); font-size: 26px; margin-bottom: 6px; }
-.form-sub { font-size: 14px; color: var(--ink-low); margin-bottom: 24px; }
-.form-row { margin-bottom: 16px; }
-.form-label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--ink-mid); }
-.form-input, .form-select { width: 100%; padding: 14px; border: 1.5px solid var(--line); border-radius: 10px; font-size: 15px; outline: none; background: var(--bg); }
-.form-input:focus, .form-select:focus { border-color: var(--action); }
-.form-submit { width: 100%; padding: 16px; background: var(--ink); color: #fff; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+@keyframes marquee-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* SECCIÓN ALIANZAS B2B */
+.vendor { padding: 90px 0; background: var(--bg); }
+.vendor-grid { display: grid; grid-template-columns: 1fr; gap: 56px; }
+@media (min-width: 1024px) { .vendor-grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
+
+.alliance-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
+.alliance-card { border-left: 3px solid var(--line); padding-left: 20px; transition: border-color 0.3s; }
+.alliance-card:hover { border-color: var(--action); }
+.alliance-card h3 { font-family: var(--font-display); font-size: 19px; font-weight: 500; margin-bottom: 4px; }
+.alliance-card p { font-size: 14px; color: var(--ink-low); }
+
+/* FORMULARIO FORMAL */
+.form-card { background: var(--bg-alt); border-radius: var(--radius-lg); padding: 32px; border: 1px solid var(--line); }
+.form-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 6px; }
+.form-sub { font-size: 13px; color: var(--ink-low); margin-bottom: 20px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--ink-mid); }
+.form-control { width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px; font-family: var(--font-body); font-size: 14px; background: var(--bg); outline: none; transition: border-color 0.2s; }
+.form-control:focus { border-color: var(--ink); }
+.form-submit { width: 100%; padding: 14px; background: var(--ink); color: #fff; border: none; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 0.2s; }
 .form-submit:hover { background: var(--action); }
-.form-success { display: none; text-align: center; padding: 32px 0; }
-.form-success.visible { display: block; }
+.form-success { display: none; text-align: center; padding: 20px 0; }
+.form-success h3 { font-family: var(--font-display); font-size: 22px; color: var(--up); margin-bottom: 8px; }
 
 /* FOOTER */
-.footer { background: var(--bg); border-top: 1px solid var(--line); padding: 64px 0 32px; font-size: 14px; color: var(--ink-low); }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+.footer { background: var(--bg-alt); border-top: 1px solid var(--line-soft); padding: 48px 0; font-size: 13px; color: var(--ink-low); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
 </style>
 </head>
 <body>
 
-<nav class="nav" role="navigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="#" style="text-decoration: none;">
-      <div class="logo-mark"><span>Tu</span>MOMO</div>
-      <div class="logo-divider"></div>
-      <div class="logo-vertical">ProTech</div>
-    </a>
-    <div class="nav-menu">
-      <a class="nav-link" href="#listings">Ecosistema Verificado</a>
-      <a class="nav-link" href="#soluciones">Infraestructura B2B</a>
-      <a class="nav-link" href="#alianza">Alianzas</a>
-    </div>
-    <div class="nav-actions">
-      <a class="btn btn-primary" href="#alianza" style="padding: 10px 20px; font-size: 14px;">Integrar mi Cartera Vía API</a>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="logo-mark" href="#"><span>Tu</span>MOMO</a>
+      <div class="nav-links">
+        <a class="nav-link" href="#inventario">Propiedades Verificadas</a>
+        <a class="nav-link" href="#analisis">Análisis de Mercado</a>
+        <a class="nav-link" href="#profesionales">Para Profesionales</a>
+      </div>
+      <a class="btn btn-ghost" href="#contacto" style="padding: 8px 20px; font-size: 13px;">Sincronizar Cartera</a>
     </div>
   </div>
 </nav>
@@ -313,203 +281,246 @@ img { display: block; max-width: 100%; height: auto; }
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div>
-        <div class="hero-tag">
-          <span class="dot"></span>
-          Evolución PropTech: Datos e Infraestructura Segura
-        </div>
-        <h1>No vendemos anuncios.<br>Habilitamos <em>transacciones</em>.</h1>
+      
+      <div class="reveal">
+        <span class="eyebrow">Transparencia Inmobiliaria en Bolivia</span>
+        <h1>Menos anuncios duplicados.<br>Decisiones con <em>datos reales</em>.</h1>
         <p class="hero-desc">
-          Transformamos el mercado inmobiliario de Bolivia integrando inventario 100% verificado, analítica en tiempo real y un sistema automatizado de precalificación de leads con interés real y liquidez comprobada.
+          Limpiamos el ruido del mercado. Conectamos propiedades de captación única con análisis de precios en tiempo real y filtros avanzados de liquidez para asegurar operaciones transparentes y eficientes.
         </p>
 
         <div class="search-card">
           <div class="search-tabs">
-            <button class="search-tab active" data-mode="compra">Comprar Inventario Verificado</button>
-            <button class="search-tab" data-mode="proyectos">Proyectos y Preventas</button>
+            <button class="search-tab active">Comprar Inmueble</button>
+            <button class="search-tab">Proyectos en Preventa</button>
+            <button class="search-tab">Anticréticos directos</button>
           </div>
           <div class="search-fields">
             <div class="search-field">
-              <label for="s-tipo">Inmueble</label>
+              <label for="s-tipo">Tipo de Propiedad</label>
               <select id="s-tipo">
                 <option>Cualquiera</option>
-                <option>Departamento</option>
-                <option>Casa Residencial</option>
-                <option>Terreno de Expansión</option>
+                <option>Departamentos</option>
+                <option>Casas de Condominio</option>
+                <option>Terrenos urbanizados</option>
               </select>
             </div>
             <div class="search-field">
-              <label for="s-ciudad">Ubicación</label>
-              <select id="s-ciudad">
-                <option>Santa Cruz de la Sierra</option>
-                <option>La Paz</option>
-                <option>Cochabamba</option>
-              </select>
-            </div>
-            <div class="search-field">
-              <label for="s-zona">Zona de Análisis</label>
+              <label for="s-zona">Ciudad y Zona</label>
               <select id="s-zona">
-                <option>Equipetrol Norte</option>
-                <option>Urubó Condominios</option>
-                <option>Calacoto / Zona Sur</option>
-                <option>Queru Queru</option>
+                <option>Santa Cruz — Equipetrol Norte</option>
+                <option>Santa Cruz — Urubó</option>
+                <option>La Paz — Calacoto</option>
+                <option>Cochabamba — Queru Queru</option>
               </select>
             </div>
             <div class="search-submit">
-              <button onclick="alert('Conectando con la base de datos de inventario único...')">
-                Buscar Datos
-              </button>
+              <button class="btn btn-action" style="width:100%; min-height:48px; border-radius:8px;">Consultar Datos</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="market-card">
-        <div class="market-card-head">
-          <div class="market-card-title">Precio Estimado TuMomo (Histórico m²)</div>
-          <span class="market-card-live">Algoritmo Activo 2026</span>
-        </div>
+      <div class="reveal market-card" style="transition-delay: 0.15s;">
+        <div class="market-title">Valores de Cierre de Mercado (Promedio por m²)</div>
         <div class="market-rows">
           <div class="market-row">
-            <div class="market-city">Santa Cruz Premium<small>Equipetrol / Urubó Corredor</small></div>
-            <div class="market-price">USD 1.180<small>/ m² Promedio Cierre</small></div>
-            <div class="market-trend">Demanda Líquida</div>
+            <div class="market-name">Santa Cruz Premium<small>Zonas Equipetrol / Urubó</small></div>
+            <div class="market-val">USD 1.180 <small>Demanda Constante</small></div>
           </div>
           <div class="market-row">
-            <div class="market-city">La Paz Sur<small>Calacoto / San Miguel / Achumani</small></div>
-            <div class="market-price">USD 1.050<small>/ m² Promedio Cierre</small></div>
-            <div class="market-trend">Estable / Usuario Final</div>
+            <div class="market-name">La Paz — Zona Sur<small>Zonas Calacoto / San Miguel</small></div>
+            <div class="market-val">USD 1.050 <small>Perfil Residencial Estable</small></div>
           </div>
           <div class="market-row">
-            <div class="market-city">Cochabamba Residencial<small>Queru Queru / Cala Cala</small></div>
-            <div class="market-price">USD 870<small>/ m² Promedio Cierre</small></div>
-            <div class="market-trend">Refugio de Valor</div>
+            <div class="market-name">Cochabamba Residencial<small>Zonas Queru Queru / Cala Cala</small></div>
+            <div class="market-val">USD 870 <small>Resguardo de Valor</small></div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="listings" id="listings">
+<section class="listings" id="inventario">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Santuario de Confianza para el Comprador</span>
-      <h2>Fichas Únicas Limpias y <em>Sinceradas</em></h2>
-      <p class="section-sub">Eliminamos de raíz las fotos pixeladas, anuncios duplicados y precios obsoletos. Propiedades auditadas con histórico de valor real.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Catálogo Unificado</span>
+      <h2>Propiedades reales, <em>sin vueltas</em>.</h2>
+      <p class="section-sub">Si dos o más agentes manejan el mismo inmueble en captación no exclusiva, los agrupamos en una sola ficha limpia. Evitamos la desinformación y dignificamos tu búsqueda.</p>
     </div>
 
     <div class="listings-grid">
-      <div class="prop-card">
+      <div class="prop-card reveal">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85" alt="Propiedad Verificada">
-          <span class="prop-badge verified">Ficha Única Verificada</span>
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80" alt="Departamento en Equipetrol">
+          <span class="prop-card-tag">Ficha única</span>
         </div>
         <div class="prop-body">
           <div class="prop-price">USD 145.000</div>
-          <div class="prop-zestimate">Precio Estimado TuMomo: USD 142.500 (Rango Justo)</div>
-          <div class="prop-title">Departamento Contemporáneo - Equipetrol Norte</div>
-          <div class="prop-loc">Santa Cruz de la Sierra · Ficha de Agentes Autorizados Agrupados</div>
+          <div class="prop-estimate">Estimado TuMomo: Rango justo de mercado [cite: 28]</div>
+          <div class="prop-title">Departamento Ejecutivo de 3 Dormitorios — Equipetrol Norte</div>
+          <div class="prop-loc">Santa Cruz de la Sierra · Información validada por agentes autorizados</div>
         </div>
       </div>
 
-      <div class="prop-card">
+      <div class="prop-card reveal" style="transition-delay: 0.1s;">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85" alt="Propiedad Verificada">
-          <span class="prop-badge verified">Ficha Única Verificada</span>
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=80" alt="Departamento en Queru Queru">
+          <span class="prop-card-tag">Ficha única</span>
         </div>
         <div class="prop-body">
           <div class="prop-price">USD 78.000</div>
-          <div class="prop-zestimate">Precio Estimado TuMomo: USD 79.200 (Oportunidad)</div>
-          <div class="prop-title">Departamento Ejecutivo Amoblado - Queru Queru</div>
-          <div class="prop-loc">Cochabamba · Información de m² Real y Verificable</div>
+          <div class="prop-estimate">Estimado TuMomo: Valor de oportunidad [cite: 28]</div>
+          <div class="prop-title">Departamento Amoblado de Segmento Medio — Queru Queru</div>
+          <div class="prop-loc">Cochabamba · Conectado directamente a datos de cierre de la zona</div>
         </div>
       </div>
 
-      <div class="prop-card">
+      <div class="prop-card reveal" style="transition-delay: 0.2s;">
         <div class="prop-img">
-          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=85" alt="Propiedad Verificada">
-          <span class="prop-badge verified">Ficha Única Verificada</span>
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80" alt="Casa en Urubó">
+          <span class="prop-card-tag">Ficha única</span>
         </div>
         <div class="prop-body">
           <div class="prop-price">USD 195.000</div>
-          <div class="prop-zestimate">Precio Estimado TuMomo: USD 190.000 (Rango Justo)</div>
-          <div class="prop-title">Casa Residencial en Condominio Cerrado - Urubó</div>
-          <div class="prop-loc">Santa Cruz · Datos directos desde CRM integrado</div>
+          <div class="prop-estimate">Estimado TuMomo: Rango justo de mercado [cite: 28]</div>
+          <div class="prop-title">Casa en Condominio Cerrado con Seguridad — Urubó</div>
+          <div class="prop-loc">Santa Cruz · Datos limpios actualizados automáticamente</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="vendor" id="soluciones">
+<section class="ticker-section" id="analisis">
+  <span class="eyebrow">Análisis e Informes de Coyuntura Inmobiliaria</span>
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      
+      <a href="#" class="ticker-card">
+        <div>
+          <span class="tag">Santa Cruz</span>
+          <p>Equipetrol y el Urubó concentran el mayor flujo de capitales en preventas residenciales.</p>
+        </div>
+        <div class="ticker-meta">
+          <span>Análisis de Zona</span>
+          <span class="link">Leer informe →</span>
+        </div>
+      </a>
+
+      <a href="#" class="ticker-card">
+        <div>
+          <span class="tag">Cochabamba</span>
+          <p>El eje tradicional de Queru Queru se mantiene firme frente a la volatilidad comercial.</p>
+        </div>
+        <div class="ticker-meta">
+          <span>Tendencias</span>
+          <span class="link">Leer informe →</span>
+        </div>
+      </a>
+
+      <a href="#" class="ticker-card">
+        <div>
+          <span class="tag">La Paz</span>
+          <p>Análisis del valor del metro cuadrado de cierre en Calacoto y Achumani.</p>
+        </div>
+        <div class="ticker-meta">
+          <span>Precios por m²</span>
+          <span class="link">Leer informe →</span>
+        </div>
+      </a>
+
+      <a href="#" class="ticker-card">
+        <div>
+          <span class="tag">Mercado</span>
+          <p>Cómo equilibrar la fijación de precios en dólares frente a los ingresos locales actuales.</p>
+        </div>
+        <div class="ticker-meta">
+          <span>Finanzas</span>
+          <span class="link">Leer informe →</span>
+        </div>
+      </a>
+
+      <a href="#" class="ticker-card">
+        <div><span class="tag">Santa Cruz</span><p>Equipetrol y el Urubó concentran el mayor flujo de capitales en preventas residenciales.</p></div>
+        <div class="ticker-meta"><span>Análisis de Zona</span><span class="link">Leer informe →</span></div>
+      </a>
+      <a href="#" class="ticker-card">
+        <div><span class="tag">Cochabamba</span><p>El eje tradicional de Queru Queru se mantiene firme frente a la volatilidad comercial.</p></div>
+        <div class="ticker-meta"><span>Tendencias</span><span class="link">Leer informe →</span></div>
+      </a>
+      <a href="#" class="ticker-card">
+        <div><span class="tag">La Paz</span><p>Análisis del valor del metro cuadrado de cierre en Calacoto y Achumani.</p></div>
+        <div class="ticker-meta"><span>Precios por m²</span><span class="link">Leer informe →</span></div>
+      </a>
+      <a href="#" class="ticker-card">
+        <div><span class="tag">Mercado</span><p>Cómo equilibrar la fijación de precios en dólares frente a los ingresos locales actuales.</p></div>
+        <div class="ticker-meta"><span>Finanzas</span><span class="link">Leer informe →</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="vendor" id="profesionales">
   <div class="container">
     <div class="vendor-grid">
-      <div>
-        <span class="eyebrow">Propuesta de Valor Segmentada</span>
-        <h2>La infraestructura tecnológica de la <em>industria</em>.</h2>
-        <p class="section-sub">Dejamos atrás el cobro por "espacio publicitario". Alineamos nuestro éxito comercial directamente al volumen y calidad de tus cierres transaccionales.</p>
+      
+      <div class="reveal">
+        <span class="eyebrow">Ecosistema Profesional</span>
+        <h2>La infraestructura tecnológica para tu negocio.</h2>
+        <p class="section-sub">Dejamos de cobrar por el simple "espacio publicitario". Nos convertimos en tu socio estratégico, alineando la plataforma a la efectividad de tus transacciones y cierres de preventa[cite: 8, 34].</p>
         
-        <div class="pillar-tabs">
-          <div class="pillar-card">
-            <h3><span>01</span>Para Agentes Inmobiliarios (Modelo Premier)</h3>
-            <p>No competimos contigo ni te vendemos listados infinitos. Agrupamos el inventario bajo fichas técnicas limpias que dignifican la búsqueda y actúan como tu fábrica de leads precalificados por IA (Filtramos liquidez inmediata, estado de crédito, moneda BOB/USD y urgencia de compra).</p>
-            <div class="pillar-tags">
-              <span class="pillar-tag">Cero Duplicados</span>
-              <span class="pillar-tag">Leads Con Liquidez Calificada</span>
-              <span class="pillar-tag">Reputación por Zona</span>
-            </div>
+        <div class="alliance-cards">
+          <div class="alliance-card">
+            <h3>Agentes Inmobiliarios (Modelo Premier) [cite: 9]</h3>
+            <p>Filtramos las consultas de tus interesados mediante análisis de perfil inicial. Sabrás de antemano si cuentan con liquidez inmediata, si requieren crédito aprobado y la moneda de su preferencia (Bs. o $us)[cite: 15, 16].</p>
           </div>
-
-          <div class="pillar-card">
-            <h3><span>02</span>Para Constructoras y Desarrolladoras (HUB de Lanzamientos)</h3>
-            <p>Control absoluto de tus números de preventa. Espacios interactivos integrados vía API con CRM para actualizar mapas de disponibilidad de unidades en tiempo real. Acceso a Big Data Inmobiliario trimestral para diseñar proyectos basados en la demanda real de metraje y precio por m² de cierre.</p>
-            <div class="pillar-tags">
-              <span class="pillar-tag">API Status Disponibilidad</span>
-              <span class="pillar-tag">Cotizador Cambiario Inteligente</span>
-              <span class="pillar-tag">Reportes Big Data Trimestral</span>
-            </div>
+          <div class="alliance-card">
+            <h3>Constructoras y Desarrolladores [cite: 8]</h3>
+            <p>Espacios diseñados para preventas, mapas de disponibilidad real integrados por API con tu sistema interno y acceso a estadísticas de búsqueda real en el país para planificar tus futuros proyectos[cite: 20, 22].</p>
           </div>
         </div>
       </div>
 
-      <div class="form-card" id="alianza">
+      <div class="reveal form-card" id="contacto" style="transition-delay: 0.1s;">
         <div class="form-head">
-          <h3 class="form-title">Únete como Socio Estratégico</h3>
-          <p class="form-sub">Integra tu inventario o proyectos directo a la infraestructura de datos de TuMomo.</p>
+          <h3 class="form-title">Conversemos sobre tu cartera</h3>
+          <p class="form-sub">Evaluemos juntos el volumen de tus propiedades y la integración técnica necesaria para tu equipo.</p>
         </div>
-        <form id="vendor-form" novalidate>
-          <div class="form-fields">
-            <div class="form-row">
-              <label class="form-label" for="nombre">Nombre de la Empresa o Profesional</label>
-              <input class="form-input" type="text" id="nombre" placeholder="Ej: Inmobiliaria o Desarrolladora S.A.">
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="telefono">WhatsApp de Contacto Corporativo</label>
-              <input class="form-input" type="tel" id="telefono" placeholder="Ej: 77012345">
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="perfil">Perfil Industrial</label>
-              <select class="form-select" id="perfil">
-                <option value="agente">Agente Independiente / Franquicia (Modelo Premier)</option>
-                <option value="constructora">Constructora o Desarrollador (HUB de Lanzamientos)</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="crm">¿Utilizas algún software CRM para controlar tu inventario?</label>
-              <select class="form-select" id="crm">
-                <option value="si">Sí, requerimos integración nativa por API</option>
-                <option value="no">No, necesitamos la infraestructura nativa de TuMomo</option>
-              </select>
-            </div>
-            <button type="submit" class="form-submit" id="submit-btn">Solicitar Acceso a la Infraestructura</button>
+        <form id="lead-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="f-nombre">Nombre Completo o Empresa</label>
+            <input type="text" id="f-nombre" class="form-control" required placeholder="Ej: Inmobiliaria o Desarrolladora">
           </div>
+          <div class="form-group">
+            <label for="f-whatsapp">WhatsApp Corporativo</label>
+            <input type="tel" id="f-whatsapp" class="form-control" required placeholder="Ej: 77012345">
+          </div>
+          <div class="form-group">
+            <label for="f-perfil">Tipo de Perfil</label>
+            <select id="f-perfil" class="form-control">
+              <option>Agente / Franquicia Independiente</option>
+              <option>Constructora / Desarrollador Inmobiliario</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-crm">¿Cuentas con un software de control de inventario (CRM)?</label>
+            <select id="f-crm" class="form-control">
+              <option>Sí, buscamos integración automática por API</option>
+              <option>No, utilizaremos el sistema interno de TuMomo</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Solicitar Acceso Estratégico</button>
         </form>
-        <div class="form-success" id="form-success">
-          <h3 class="form-title">Solicitud de Alianza Recibida</h3>
-          <p class="form-sub">Un especialista en infraestructura PropTech se comunicará para coordinar la integración nativa de tu cartera o el despliegue del HUB de lanzamientos en menos de 24 horas.</p>
+        <div class="form-success" id="form-msg">
+          <h3>Solicitud Registrada</h3>
+          <p class="form-sub">Nos comunicaremos en menos de 24 horas laborables para coordinar los parámetros técnicos de integración.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -517,41 +528,48 @@ img { display: block; max-width: 100%; height: auto; }
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div>© 2026 TU MOMO PropTech · Infraestructura y Datos Inmobiliarios de Bolivia</div>
-      <div>Plataforma alineada a los pilares de Verificación, Datos y Precalificación Eficiente.</div>
+      <div>© 2026 TU MOMO · Datos e Infraestructura Inmobiliaria en Bolivia</div>
+      <div>Información verificada · Enfocados en la seguridad transaccional del mercado nacional</div>
     </div>
   </div>
 </footer>
 
 <script>
-/* Manejo de Tabs de Búsqueda */
-document.querySelectorAll('.search-tab').forEach(tab => {
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-
-/* Simulación de Conversión B2B Integrada con dataLayer */
-document.getElementById('vendor-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerText = 'Verificando Configuración API...';
-
-  setTimeout(() => {
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'proptech_lead_submit',
-        perfil_industrial: document.getElementById('perfil').value,
-        requiere_api: document.getElementById('crm').value
-      });
+/* --- ANIMACIÓN SCROLL REVEAL (INTERSECTION OBSERVER) --- */
+const revealCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
     }
-    document.getElementById('vendor-form').style.display = 'none';
-    document.getElementById('form-success').classList.add('visible');
-  }, 1200);
+  });
+};
+
+const revealObserver = new IntersectionObserver(revealCallback, {
+  root: null,
+  threshold: 0.05,
+  rootMargin: '0px 0px -40px 0px'
 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* --- PROCESAMIENTO FORMULARIO B2B --- */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('lead-form');
+  const msg = document.getElementById('form-msg');
+  
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'proptech_alliance_request',
+      perfil: document.getElementById('f-perfil').value,
+      api_required: document.getElementById('f-crm').value
+    });
+  }
+  
+  form.style.display = 'none';
+  msg.classList.add('visible');
+}
 </script>
 </body>
 </html>
